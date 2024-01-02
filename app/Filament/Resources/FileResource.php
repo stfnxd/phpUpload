@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\TextColumn;
 
 class FileResource extends Resource
 {    
@@ -29,8 +30,8 @@ class FileResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                // Konfiguration af tabelkolonner
+        ->columns([
+            TextColumn::make('filename')->label('Filnavn'),
             ])
             ->filters([
                 // Filtreringsoptioner
@@ -40,7 +41,7 @@ class FileResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
