@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        
+        'eloquent.deleted: App\Models\File' => [
+            'App\Observers\FileObserver@deleted',
+        ],
     ];
 
     /**
