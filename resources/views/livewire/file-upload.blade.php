@@ -28,81 +28,84 @@
         </div>
     </div>
 
-<style>
-    /* TODO: Add progress bar to UI */
-    .dark-background {
-        background-color: #222;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-    .container {
-        width: 100%;
-        max-width: 400px;
-    }
+        .dark-background {
+            background-color: #222;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+        }
 
-    .upload-container {
-        padding: 20px;
-        border: 1px solid #333;
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        background-color: #333;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+        .container {
+            width: 100%;
+            max-width: 400px;
+        }
 
-    form {
-        margin-top: 20px;
-        width: 100%;
-        text-align: center;
-    }
+        .upload-container {
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .custom-file-upload {
-        border: 2px solid #666;
-        display: inline-block;
-        padding: 8px 12px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-    .custom-file-upload:hover {
-        border: 2px solid rgb(184, 73, 21);
-        background-color: rgb(184, 73, 21);
-    }
+        form {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+        }
 
-    .custom-file-upload input[type="file"] {
-        display: none;
-    }
+        .custom-file-upload {
+            border: 2px solid #666;
+            display: inline-block;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .custom-file-upload:hover {
+            border: 2px solid rgb(184, 73, 21);
+            background-color: rgb(184, 73, 21);
+        }
 
-    .custom-file-upload span {
-        font-size: 16px;
-        color: #fff;
-    }
+        .custom-file-upload input[type="file"] {
+            display: none;
+        }
 
-    .selected-file-info {
-        margin-top: 10px;
-        color: #ccc;
-    }
+        .custom-file-upload span {
+            font-size: 16px;
+            color: #fff;
+        }
 
-    .button-container {
-        margin-top: 10px;
-    }
+        .selected-file-info {
+            margin-top: 10px;
+            color: #ccc;
+        }
 
-    button {
-        background-color: rgb(184, 73, 21);
-        color: white;
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    button:hover {
-        background-color: rgb(97, 37, 9);
-    }
+        .button-container {
+            margin-top: 10px;
+        }
 
-</style>
-
+        button {
+            background-color: rgb(184, 73, 21);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(97, 37, 9);
+        }
+    </style>
 </div>
