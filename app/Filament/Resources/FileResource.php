@@ -13,6 +13,10 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Notifications\Notification;
+use App\Models\Post;
+use Filament\Tables\Columns;
+use Filament\Tables\Actions\Action;
 
 class FileResource extends Resource
 {    
@@ -30,18 +34,26 @@ class FileResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-        ->columns([
-            TextColumn::make('filename')->label('Filnavn'),
+            ->columns([
+                TextColumn::make('filename')->label('Filnavn'),
             ])
             ->filters([
-                // Filtreringsoptioner
+                // Filtering options
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make()->successNotification(
+                    Notification::make()
+                        ->success()
+                        ->title('☠️Files Deleted☠️')
+                        ->body('The files have been deleted successfully.')
+                ),
+                Action::make('Download File')
+                    ->url(fn ($record) => route('download.file', ['filename' => $record->filename]))
+                    ->openUrlInNewTab(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\DeleteBulkAction::make(),
                 ]),
             ]);
     }
