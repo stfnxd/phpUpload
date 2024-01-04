@@ -35,22 +35,25 @@ class FileResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('filename')->label('Filnavn'),
+                TextColumn::make('filename')->label('File name'),
             ])
             ->filters([
                 // Filtering options
             ])
             ->actions([
+                // Delete button
                 Tables\Actions\DeleteAction::make()->successNotification(
                     Notification::make()
                         ->success()
                         ->title('☠️Files Deleted☠️')
                         ->body('The files have been deleted successfully.')
                 ),
+                // Download button
                 Action::make('Download File')
                     ->url(fn ($record) => route('download.file', ['filename' => $record->filename]))
                     ->openUrlInNewTab(),
             ])
+            // Bulk options
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),

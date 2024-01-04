@@ -15,7 +15,6 @@ class File extends Model
 
     public function deleteFileFromStorage()
     {
-        // Construct the file path in storage
         $filePath = 'public/uploads/' . $this->filename;
 
         // Check if the file exists in storage before attempting to delete
