@@ -35,7 +35,8 @@ class FileResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('filename')->label('File name'),
+                TextColumn::make('filename')
+                    ->label('File name'),
             ])
             ->filters([
                 // Filtering options
@@ -51,7 +52,7 @@ class FileResource extends Resource
                 // Download button
                 Action::make('Download File')
                     ->url(fn ($record) => route('download.file', ['filename' => $record->filename]))
-                    ->openUrlInNewTab(),
+                    ->openUrlInNewTab(),                     
             ])
             // Bulk options
             ->bulkActions([
