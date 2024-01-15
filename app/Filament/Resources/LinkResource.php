@@ -16,6 +16,7 @@ use Filament\Forms\Components\Radio;
 use Filament\Forms\Components;
 use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\TextInput;
 
 class LinkResource extends Resource
 {
@@ -29,7 +30,8 @@ class LinkResource extends Resource
 
         return $form
         ->schema([
-        
+            TextInput::make('name'),
+            TextInput::make('password')
         ]);
     }
 
@@ -37,10 +39,12 @@ class LinkResource extends Resource
     {
         return $table
             ->columns([
+                TextColumn::make('name')
+                    ->label('Name'),
                 TextColumn::make('link')
-                ->label('Link name')
-                ->copyable()
-                ->copyableState(fn (string $state): string => "{$state}"),
+                    ->label('Link name')
+                    ->copyable()
+                    ->copyableState(fn (string $state): string => "{$state}"),
             ])
             ->filters([
                 //

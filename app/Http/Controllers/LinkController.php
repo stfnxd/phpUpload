@@ -9,15 +9,13 @@ class LinkController extends Controller
 {
     public function createLink(Request $request)
     {
-        // Opret et nyt link
-        $newLink = Link::create(['link' => '']); // Du kan også tilføje en konkret URL her
+        $newLink = Link::create(['link' => '']);
 
-        // Generer det ønskede link baseret på det auto-genererede ID
+
         $newLink->link = url('/links/' . $newLink->id);
         $newLink->save();
 
-        // Returner visningen eller redirect efter behov
-        // Eksempel:
+
         return redirect()->route('link.index')->with('success', 'Link oprettet successfully!');
     }
 }

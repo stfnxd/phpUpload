@@ -10,7 +10,9 @@ class Link extends Model
     use HasFactory;
     protected $fillable = [
         'link',
-        'create_new_link', // Tilføj dette felt til fillable
+        'create_new_link',
+        'name',
+        'password',
     ];
 
 }

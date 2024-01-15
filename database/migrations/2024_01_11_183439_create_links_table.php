@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('link')->nullable();
             $table->boolean('create_new_link')->default(false); // Tilføj dette felt
             $table->timestamps();
+            $table->string('name')->nullable();
+            $table->string('password')->nullable();
         });
     }
 

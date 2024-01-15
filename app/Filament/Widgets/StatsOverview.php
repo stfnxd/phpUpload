@@ -14,5 +14,7 @@ class StatsOverview extends BaseWidget
             Stat::make(label:"Files Stored", value:File::Count())
             ->description("Total amount of files Stored in Storage")
         ];
+        
     }
+    
 }
